@@ -1,0 +1,12 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PublicLayout, PageHeader, Prose } from "@/components/site/PublicLayout";
+import { useLang } from "@/lib/i18n";
+export const Route = createFileRoute("/privacy")({ head: () => ({ meta: [
+  { title: "Privacy — Thogudhi Inai" }, { name: "description", content: "How Thogudhi Inai handles submission and contact information." }, { property: "og:title", content: "Privacy — Thogudhi Inai" }, { property: "og:description", content: "How submission and contact information is handled." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" },
+]}), component: Page });
+function Page() { const { lang } = useLang(); const ta = lang === "ta"; return <PublicLayout><PageHeader title={ta ? "தனியுரிமை" : "Privacy"} intro={ta ? "உங்கள் தனிப்பட்ட விவரங்கள் பொதுவில் காட்டப்படாது." : "Your personal contact details are never shown publicly."} /><Prose>
+  <h2>{ta ? "நாங்கள் சேகரிப்பவை" : "What we collect"}</h2><p>{ta ? "சமர்ப்பிப்பின் விவரங்கள், பகுதி, விருப்பமான பெயர் மற்றும் தொடர்பு விவரங்கள், மேலும் நீங்கள் இணைக்கும் புகைப்படம் ஆகியவற்றைச் சேகரிக்கலாம்." : "We may collect submission details, locality, an optional name and contact details, and any photo you choose to attach."}</p>
+  <h2>{ta ? "எப்படிப் பயன்படுத்துகிறோம்" : "How information is used"}</h2><p>{ta ? "சமர்ப்பிப்பை ஆய்வு செய்ய, உங்களைத் தொடர்பு கொள்ள, நிலையைப் புதுப்பிக்க மற்றும் ஒப்புதல் பெற்ற சுருக்கத்தை வெளியிட தகவல் பயன்படுத்தப்படுகிறது." : "Information is used to review your submission, contact you when requested, update its status and publish an approved summary."}</p>
+  <h2>{ta ? "பொதுவில் காட்டப்படுவது" : "What may be public"}</h2><p>{ta ? "மதிப்பாய்வுக்குப் பிறகு தலைப்பு, சுருக்கம், வகை, பகுதி மற்றும் நிலை காட்டப்படலாம். உங்கள் பெயர், தொலைபேசி, மின்னஞ்சல் மற்றும் அசல் புகைப்படம் பொதுப் பலகையில் காட்டப்படாது." : "After moderation, a title, sanitized summary, category, locality and status may be shown. Your name, phone, email and original photo are not shown on the Community Board."}</p>
+  <h2>{ta ? "அணுகல்" : "Access and security"}</h2><p>{ta ? "அங்கீகரிக்கப்பட்ட குழு உறுப்பினர்கள் மட்டுமே தனிப்பட்ட சமர்ப்பிப்பு விவரங்களைப் பார்க்க முடியும். கண்காணிப்பிற்கு குறிப்பு எண் மற்றும் தனிப்பட்ட குறியீடு இரண்டும் தேவை." : "Only authorised team members can access private submission details. Tracking requires both the reference ID and private tracking code."}</p>
+</Prose></PublicLayout>; }

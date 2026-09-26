@@ -1,0 +1,12 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PublicLayout, PageHeader, Prose } from "@/components/site/PublicLayout";
+import { useLang } from "@/lib/i18n";
+export const Route = createFileRoute("/about")({ head: () => ({ meta: [
+  { title: "About — Thogudhi Inai" }, { name: "description", content: "About Thogudhi Inai, a neutral community engagement initiative for Thousand Lights." },
+  { property: "og:title", content: "About — Thogudhi Inai" }, { property: "og:description", content: "A neutral community engagement initiative for Thousand Lights." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" },
+]}), component: Page });
+function Page() { const { lang } = useLang(); const ta = lang === "ta"; return <PublicLayout><PageHeader title={ta ? "எங்களைப் பற்றி" : "About Thogudhi Inai"} intro={ta ? "ஆயிரம் விளக்கு மக்களுக்கான நடுநிலை சமூகத் தளம்." : "A neutral community space for the people of Thousand Lights."} /><Prose>
+  <h2>{ta ? "எங்கள் நோக்கம்" : "Our purpose"}</h2><p>{ta ? "உள்ளூர் பிரச்சினைகள், கேள்விகள், யோசனைகள் மற்றும் கருத்துகளை ஒரே இடத்தில் பகிர மக்களுக்கு உதவுகிறோம். சமூகத்தால் எழுப்பப்படும் விஷயங்கள் தெளிவாகப் பதிவு செய்யப்பட்டு, தேவையான இடங்களில் உரிய அதிகாரிகளின் கவனத்திற்கு கொண்டு செல்லப்படலாம்." : "We help residents share local issues, questions, ideas and views in one place. Community concerns can be recorded clearly and, where appropriate, brought to the attention of relevant authorities."}</p>
+  <h2>{ta ? "நடுநிலைத் தன்மை" : "Neutral and non-partisan"}</h2><p>{ta ? "தொகுதி இணை எந்த அரசியல் கட்சி, வேட்பாளர் அல்லது அரசு அமைப்பையும் பிரதிநிதித்துவப்படுத்தாது. இது We The Leaders – ஆயிரம் விளக்கு தொகுதியின் சமூக ஈடுபாட்டு முன்னெடுப்பு." : "Thogudhi Inai does not represent any political party, candidate or government body. It is a community engagement initiative of We The Leaders – Thousand Lights Constituency."}</p>
+  <h2>{ta ? "எப்படி செயல்படுகிறது" : "How it works"}</h2><ul><li>{ta ? "மக்கள் ஒரு சமர்ப்பிப்பை அனுப்பி தனிப்பட்ட கண்காணிப்புக் குறியீட்டைப் பெறுகிறார்கள்." : "Residents send a submission and receive a private tracking code."}</li><li>{ta ? "அங்கீகரிக்கப்பட்ட குழு சமர்ப்பிப்பை ஆய்வு செய்து நிலையைப் புதுப்பிக்கிறது." : "The authorised team reviews it and updates its status."}</li><li>{ta ? "ஒப்புதல் பெற்ற, தனிப்பட்ட விவரங்கள் நீக்கப்பட்ட சுருக்கங்கள் மட்டுமே பொதுப் பலகையில் தோன்றும்." : "Only approved, sanitized summaries appear on the public board."}</li></ul>
+</Prose></PublicLayout>; }
